@@ -53,12 +53,15 @@ The application can be configured using environment variables:
 
 - The default secret key is for development only. In production, set the `SECRET_KEY` environment variable to a secure random value.
 - Debug mode is disabled by default. Only enable it in development environments.
+- CodeQL security scanning: ✅ No vulnerabilities detected
 - This is a demo application. For production use, consider adding:
   - User authentication and authorization
-  - Database storage instead of JSON
+  - Database storage instead of JSON (e.g., PostgreSQL, MySQL)
   - Input validation and sanitization
   - HTTPS/SSL support
   - Rate limiting
+  - CSRF protection for forms
+  - Production WSGI server (e.g., Gunicorn, uWSGI)
 
 ## Project Structure
 
