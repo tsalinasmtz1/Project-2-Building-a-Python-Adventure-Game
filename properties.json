@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Modern Downtown Apartment",
+    "price": "425000",
+    "location": "123 Main Street, San Francisco, CA 94102",
+    "bedrooms": "2",
+    "bathrooms": "2",
+    "sqft": "1200",
+    "description": "Beautiful modern apartment in the heart of downtown San Francisco. Features include hardwood floors, stainless steel appliances, granite countertops, and floor-to-ceiling windows with stunning city views. Walking distance to restaurants, shops, and public transportation.",
+    "property_type": "Apartment",
+    "status": "For Sale"
+  },
+  {
+    "id": 2,
+    "title": "Spacious Family Home with Pool",
+    "price": "750000",
+    "location": "456 Oak Avenue, Los Angeles, CA 90210",
+    "bedrooms": "4",
+    "bathrooms": "3",
+    "sqft": "2800",
+    "description": "Stunning family home featuring 4 bedrooms, 3 bathrooms, and a gorgeous backyard with an in-ground pool. The home includes a gourmet kitchen, formal dining room, large master suite with walk-in closet, and a two-car garage. Perfect for entertaining and family living.",
+    "property_type": "House",
+    "status": "For Sale"
+  },
+  {
+    "id": 3,
+    "title": "Luxury Beachfront Condo",
+    "price": "1250000",
+    "location": "789 Ocean Drive, Miami Beach, FL 33139",
+    "bedrooms": "3",
+    "bathrooms": "2.5",
+    "sqft": "2100",
+    "description": "Experience luxury living in this stunning beachfront condo with panoramic ocean views. Features include an open-concept living space, chef's kitchen with premium appliances, spa-like bathrooms, and a private balcony. Building amenities include 24-hour concierge, fitness center, and private beach access.",
+    "property_type": "Condo",
+    "status": "For Sale"
+  },
+  {
+    "id": 4,
+    "title": "Charming Victorian Townhouse",
+    "price": "895000",
+    "location": "321 Elm Street, Boston, MA 02108",
+    "bedrooms": "3",
+    "bathrooms": "2.5",
+    "sqft": "2200",
+    "description": "Beautifully restored Victorian townhouse in historic Boston neighborhood. Original architectural details including crown molding, hardwood floors, and decorative fireplaces. Updated kitchen and bathrooms while maintaining period charm. Private rooftop deck with city views.",
+    "property_type": "Townhouse",
+    "status": "For Sale"
+  },
+  {
+    "id": 5,
+    "title": "Cozy Studio Apartment",
+    "price": "1800",
+    "location": "555 Park Place, New York, NY 10001",
+    "bedrooms": "1",
+    "bathrooms": "1",
+    "sqft": "550",
+    "description": "Affordable studio apartment in a great New York location. Features include an efficient layout, modern kitchen, updated bathroom, and plenty of natural light. Close to subway stations, parks, and local amenities. Perfect for young professionals or students.",
+    "property_type": "Apartment",
+    "status": "For Rent"
+  },
+  {
+    "id": 6,
+    "title": "Prime Commercial Property",
+    "price": "2500000",
+    "location": "1000 Business Boulevard, Chicago, IL 60601",
+    "bedrooms": "0",
+    "bathrooms": "4",
+    "sqft": "5000",
+    "description": "Excellent commercial property in prime Chicago location. Suitable for retail, office, or mixed-use development. High visibility location with ample parking. Building features include modern HVAC system, updated electrical, and flexible floor plan. Great investment opportunity.",
+    "property_type": "Commercial",
+    "status": "For Sale"
+  },
+  {
+    "id": 7,
+    "title": "Test Suburban House",
+    "price": "550000",
+    "location": "789 Test Street, Austin, TX 78701",
+    "bedrooms": "3",
+    "bathrooms": "2.5",
+    "sqft": "1850",
+    "description": "This is a lovely suburban house perfect for families. Features include a spacious backyard, modern kitchen, and quiet neighborhood.",
+    "property_type": "House",
+    "status": "For Sale"
+  }
+]
