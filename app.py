@@ -8,10 +8,19 @@ import json
 import os
 
 app = Flask(__name__)
-app.secret_key = 'real-estate-secret-key-2026'
+app.secret_key = os.environ.get('SECRET_KEY', 'real-estate-secret-key-2026-dev-only')
 
 # Path to the JSON file storing property data
 DATA_FILE = 'properties.json'
+
+
+@app.template_filter('format_price')
+def format_price(value):
+    """Format price with thousand separators"""
+    try:
+        return "{:,.0f}".format(float(value))
+    except (ValueError, TypeError):
+        return value
 
 
 def load_properties():
@@ -125,8 +134,11 @@ def search():
             if p['property_type'] == property_type
         ]
     
-    return render_template('search.html', properties=filtered_properties, query=query)
+    return render_template('search.html', properties=filtered_properties, query=query,
+                         min_price=min_price, max_price=max_price, selected_type=property_type)
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    import os
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False') == 'True'
+    app.run(debug=debug_mode, host='0.0.0.0', port=5000)

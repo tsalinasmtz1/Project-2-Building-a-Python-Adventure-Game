@@ -30,12 +30,35 @@ pip install -r requirements.txt
 python app.py
 ```
 
-2. Open your web browser and navigate to:
+2. For development with debug mode enabled:
+```bash
+FLASK_DEBUG=True python app.py
+```
+
+3. Open your web browser and navigate to:
 ```
 http://localhost:5000
 ```
 
-3. Browse property listings, search for properties, or add new listings through the web interface.
+4. Browse property listings, search for properties, or add new listings through the web interface.
+
+## Configuration
+
+The application can be configured using environment variables:
+
+- `SECRET_KEY`: Secret key for Flask session management (required for production)
+- `FLASK_DEBUG`: Set to 'True' to enable debug mode (default: False)
+
+## Security Notes
+
+- The default secret key is for development only. In production, set the `SECRET_KEY` environment variable to a secure random value.
+- Debug mode is disabled by default. Only enable it in development environments.
+- This is a demo application. For production use, consider adding:
+  - User authentication and authorization
+  - Database storage instead of JSON
+  - Input validation and sanitization
+  - HTTPS/SSL support
+  - Rate limiting
 
 ## Project Structure
 

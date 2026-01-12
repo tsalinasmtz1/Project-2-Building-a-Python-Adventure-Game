@@ -26,7 +26,7 @@
                     <span class="property-status">{{ property.status }}</span>
                 </div>
                 <h3>{{ property.title }}</h3>
-                <p class="property-price">${{ property.price }}</p>
+                <p class="property-price">${{ property.price|format_price }}</p>
                 <p class="property-location">📍 {{ property.location }}</p>
                 <div class="property-details">
                     <span>🛏️ {{ property.bedrooms }} beds</span>

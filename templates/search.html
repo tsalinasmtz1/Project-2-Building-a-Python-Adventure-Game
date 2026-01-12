@@ -17,13 +17,13 @@
                 <div class="form-group">
                     <label for="type">Property Type</label>
                     <select id="type" name="type">
-                        <option value="">All Types</option>
-                        <option value="House">House</option>
-                        <option value="Apartment">Apartment</option>
-                        <option value="Condo">Condo</option>
-                        <option value="Townhouse">Townhouse</option>
-                        <option value="Land">Land</option>
-                        <option value="Commercial">Commercial</option>
+                        <option value="" {% if not selected_type %}selected{% endif %}>All Types</option>
+                        <option value="House" {% if selected_type == 'House' %}selected{% endif %}>House</option>
+                        <option value="Apartment" {% if selected_type == 'Apartment' %}selected{% endif %}>Apartment</option>
+                        <option value="Condo" {% if selected_type == 'Condo' %}selected{% endif %}>Condo</option>
+                        <option value="Townhouse" {% if selected_type == 'Townhouse' %}selected{% endif %}>Townhouse</option>
+                        <option value="Land" {% if selected_type == 'Land' %}selected{% endif %}>Land</option>
+                        <option value="Commercial" {% if selected_type == 'Commercial' %}selected{% endif %}>Commercial</option>
                     </select>
                 </div>
             </div>
@@ -31,12 +31,12 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="min_price">Min Price</label>
-                    <input type="number" id="min_price" name="min_price" placeholder="Min" step="10000">
+                    <input type="number" id="min_price" name="min_price" placeholder="Min" step="10000" value="{{ min_price or '' }}">
                 </div>
 
                 <div class="form-group">
                     <label for="max_price">Max Price</label>
-                    <input type="number" id="max_price" name="max_price" placeholder="Max" step="10000">
+                    <input type="number" id="max_price" name="max_price" placeholder="Max" step="10000" value="{{ max_price or '' }}">
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                             <span class="property-status">{{ property.status }}</span>
                         </div>
                         <h3>{{ property.title }}</h3>
-                        <p class="property-price">${{ property.price }}</p>
+                        <p class="property-price">${{ property.price|format_price }}</p>
                         <p class="property-location">📍 {{ property.location }}</p>
                         <div class="property-details">
                             <span>🛏️ {{ property.bedrooms }} beds</span>
