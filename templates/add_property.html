@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Add Property - Real Estate Listings{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Add New Property</h1>
+    <p>Fill out the form below to add a new property listing</p>
+
+    <form method="POST" action="{{ url_for('add_property') }}" class="property-form">
+        <div class="form-group">
+            <label for="title">Property Title*</label>
+            <input type="text" id="title" name="title" required placeholder="e.g., Beautiful 3BR Family Home">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price*</label>
+            <input type="number" id="price" name="price" required placeholder="e.g., 450000" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location*</label>
+            <input type="text" id="location" name="location" required placeholder="e.g., 123 Main St, San Francisco, CA">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="bedrooms">Bedrooms*</label>
+                <input type="number" id="bedrooms" name="bedrooms" required placeholder="e.g., 3" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="bathrooms">Bathrooms*</label>
+                <input type="number" id="bathrooms" name="bathrooms" required placeholder="e.g., 2" min="0" step="0.5">
+            </div>
+
+            <div class="form-group">
+                <label for="sqft">Square Feet*</label>
+                <input type="number" id="sqft" name="sqft" required placeholder="e.g., 2000" min="0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="property_type">Property Type*</label>
+            <select id="property_type" name="property_type" required>
+                <option value="">Select Type</option>
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Land">Land</option>
+                <option value="Commercial">Commercial</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status*</label>
+            <select id="status" name="status" required>
+                <option value="For Sale">For Sale</option>
+                <option value="For Rent">For Rent</option>
+                <option value="Sold">Sold</option>
+                <option value="Pending">Pending</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description*</label>
+            <textarea id="description" name="description" required rows="5" placeholder="Provide a detailed description of the property..."></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add Property</button>
+            <a href="{{ url_for('index') }}" class="btn btn-outline">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

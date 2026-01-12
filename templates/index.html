@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Real Estate Listings{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Find Your Dream Home</h1>
+    <p>Browse our extensive collection of properties</p>
+</div>
+
+<div class="search-bar">
+    <form action="{{ url_for('search') }}" method="get">
+        <input type="text" name="q" placeholder="Search by location, title, or description..." class="search-input">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<h2>Featured Properties</h2>
+
+{% if properties %}
+    <div class="properties-grid">
+        {% for property in properties %}
+            <div class="property-card">
+                <div class="property-header">
+                    <span class="property-type">{{ property.property_type }}</span>
+                    <span class="property-status">{{ property.status }}</span>
+                </div>
+                <h3>{{ property.title }}</h3>
+                <p class="property-price">${{ property.price }}</p>
+                <p class="property-location">📍 {{ property.location }}</p>
+                <div class="property-details">
+                    <span>🛏️ {{ property.bedrooms }} beds</span>
+                    <span>🚿 {{ property.bathrooms }} baths</span>
+                    <span>📐 {{ property.sqft }} sqft</span>
+                </div>
+                <p class="property-description">{{ property.description[:100] }}...</p>
+                <a href="{{ url_for('property_detail', property_id=property.id) }}" class="btn btn-secondary">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="no-properties">
+        <p>No properties available at the moment.</p>
+        <a href="{{ url_for('add_property') }}" class="btn btn-primary">Add Your First Property</a>
+    </div>
+{% endif %}
+{% endblock %}

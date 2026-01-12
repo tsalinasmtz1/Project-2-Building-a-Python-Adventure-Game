@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Search Properties - Real Estate Listings{% endblock %}
+
+{% block content %}
+<div class="search-page">
+    <h1>Search Properties</h1>
+
+    <div class="search-filters">
+        <form action="{{ url_for('search') }}" method="get" class="filter-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="q">Search</label>
+                    <input type="text" id="q" name="q" placeholder="Location, title, description..." value="{{ query or '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Property Type</label>
+                    <select id="type" name="type">
+                        <option value="">All Types</option>
+                        <option value="House">House</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Condo">Condo</option>
+                        <option value="Townhouse">Townhouse</option>
+                        <option value="Land">Land</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="min_price">Min Price</label>
+                    <input type="number" id="min_price" name="min_price" placeholder="Min" step="10000">
+                </div>
+
+                <div class="form-group">
+                    <label for="max_price">Max Price</label>
+                    <input type="number" id="max_price" name="max_price" placeholder="Max" step="10000">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    <div class="search-results">
+        <h2>Results ({{ properties|length }} properties found)</h2>
+
+        {% if properties %}
+            <div class="properties-grid">
+                {% for property in properties %}
+                    <div class="property-card">
+                        <div class="property-header">
+                            <span class="property-type">{{ property.property_type }}</span>
+                            <span class="property-status">{{ property.status }}</span>
+                        </div>
+                        <h3>{{ property.title }}</h3>
+                        <p class="property-price">${{ property.price }}</p>
+                        <p class="property-location">📍 {{ property.location }}</p>
+                        <div class="property-details">
+                            <span>🛏️ {{ property.bedrooms }} beds</span>
+                            <span>🚿 {{ property.bathrooms }} baths</span>
+                            <span>📐 {{ property.sqft }} sqft</span>
+                        </div>
+                        <p class="property-description">{{ property.description[:100] }}...</p>
+                        <a href="{{ url_for('property_detail', property_id=property.id) }}" class="btn btn-secondary">View Details</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-properties">
+                <p>No properties found matching your criteria.</p>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">View All Properties</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
